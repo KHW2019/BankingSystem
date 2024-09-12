@@ -1,0 +1,32 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build project",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-I", "${workspaceFolder}/src/Bank",          // Include directory for Bank
+                "-I", "${workspaceFolder}/src/Account",       // Include directory for Account
+                "${workspaceFolder}/src/main/main.cpp",       // Main file
+                "${workspaceFolder}/src/Account/Account.cpp", // Account class implementation
+                "${workspaceFolder}/src/Bank/Bank.cpp",       // Bank class implementation
+                "-o",
+                "${workspaceFolder}/build/main.exe"           // Output executable
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task to build project with include paths."
+        }
+    ],
+    "version": "2.0.0"
+}
