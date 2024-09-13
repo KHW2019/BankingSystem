@@ -4,16 +4,18 @@
 #include <vector>
 #include "Account.h"
 
+using namespace std;
+
 class Bank {
 private:
-    std::vector<Account> accounts;
+    vector<Account> accounts;
 
 public:
     // Add a new account
-    void createAccount(const std::string& accNum, const std::string& name, double initialBalance);
+    void createAccount(const string& accNum, const string& name, double initialBalance);
 
     // Find account by account number
-    Account* findAccount(const std::string& accNum);
+    Account* findAccount(const string& accNum);
 
     // Display account information
     void displayAccounts() const;

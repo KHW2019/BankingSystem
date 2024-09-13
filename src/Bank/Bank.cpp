@@ -1,13 +1,15 @@
 #include "Bank.h"
 #include <iostream>
 
+using namespace std;
+
 // Add a new account
-void Bank::createAccount(const std::string& accNum, const std::string& name, double initialBalance) {
+void Bank::createAccount(const string& accNum, const string& name, double initialBalance) {
     accounts.push_back(Account(accNum, name, initialBalance));
 }
 
 // Find account by account number
-Account* Bank::findAccount(const std::string& accNum) {
+Account* Bank::findAccount(const string& accNum) {
     for (auto& account : accounts) {
         if (account.getAccountNumber() == accNum) {
             return &account;
@@ -19,8 +21,8 @@ Account* Bank::findAccount(const std::string& accNum) {
 // Display all accounts
 void Bank::displayAccounts() const {
     for (const auto& account : accounts) {
-        std::cout << "Account Number: " << account.getAccountNumber() << "\n"
+        cout << "Account Number: " << account.getAccountNumber() << "\n"
                   << "Account Holder: " << account.getAccountHolderName() << "\n"
-                  << "Balance: " << account.getBalance() << "\n" << std::endl;
+                  << "Balance: " << account.getBalance() << "\n" << endl;
     }
 }

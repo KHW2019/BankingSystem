@@ -3,19 +3,21 @@
 
 #include <string>
 
+using namespace std;
+
 class Account {
 private:
-    std::string accountNumber;
-    std::string accountHolderName;
+    string accountNumber;
+    string accountHolderName;
     double balance;
 
 public:
     // Constructor
-    Account(std::string accNum, std::string name, double initialBalance);
+    Account(string accNum, string name, double initialBalance);
 
     // Getter methods
-    std::string getAccountNumber() const;
-    std::string getAccountHolderName() const;
+    string getAccountNumber() const;
+    string getAccountHolderName() const;
     double getBalance() const;
 
     // Account operations

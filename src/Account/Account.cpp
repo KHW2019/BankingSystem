@@ -1,17 +1,19 @@
 #include "Account.h"
 #include <iostream>
 
+using namespace std;
+
 // Constructor
-Account::Account(std::string accNum, std::string name, double initialBalance) 
+Account::Account(string accNum, string name, double initialBalance) 
     : accountNumber(accNum), accountHolderName(name), balance(initialBalance) {}
 
 // Get account number
-std::string Account::getAccountNumber() const {
+string Account::getAccountNumber() const {
     return accountNumber;
 }
 
 // Get account holder name
-std::string Account::getAccountHolderName() const {
+string Account::getAccountHolderName() const {
     return accountHolderName;
 }
 
@@ -28,7 +30,7 @@ void Account::deposit(double amount) {
 // Withdraw money
 bool Account::withdraw(double amount) {
     if (amount > balance) {
-        std::cout << "Insufficient balance!" << std::endl;
+        cout << "Insufficient balance!" << endl;
         return false;
     }
     balance -= amount;
