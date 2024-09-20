@@ -2,23 +2,6 @@
 
 A simple banking system written in C++ to manage accounts, deposits, and withdrawals. This project demonstrates basic object-oriented programming principles and file management.
 
-## Project Structure
-
-BankingSystem/ ├── src/ 
-                  ├── main/ 
-                        └── main.cpp 
-                  ├── Account/ 
-                      ├── Account.h
-                      └── Account.cpp 
-                  └── Bank/ 
-                      ├── Bank.h 
-                      └── Bank.cpp 
-                ├── build/ 
-                    └── main.exe 
-# Compiled executable ├── .vscode/ 
-                            └── tasks.json # VSCode build and run tasks
-                            ├── README.md
-
 ## Features
 
 - **Account Management**
