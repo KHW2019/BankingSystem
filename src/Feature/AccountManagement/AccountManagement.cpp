@@ -1,51 +1,82 @@
 #include "AccountManagement.h"
+
 #include <iostream>
+#include <string>
+#include <algorithm>
 #include <limits>
 #include <cctype>
 
 using namespace std;
 
-bool isValidAccountNumber(const string &accNum)
+bool isValidAccountNumber(const int &accNum)
 {
-    if (accNum.length() != 6)
-    {
-        return false;
-    }
-    for (char c : accNum)
-    {
-        if (!isdigit(c))
-        {
-            return false;
-        }
-    }
+    return accNum >= 100000 && accNum <= 999999;
+}
 
-    return true;
+bool isValidName(const string &name)
+{
+    return all_of(name.begin(), name.end(), [](char c)
+                  { return isalpha(c); });
+}
+
+bool isValidBalance(const double &balance)
+{
+    return balance > 0;
 }
 
 void handleAccountCreation(Bank &bank)
 {
-    string accNum, name;
+    int accNum;
+    string name;
     double initialBalance;
 
-    cout << "Enter account number (6-digit number): ";
-    cin >> accNum;
-
-    if (!isValidAccountNumber(accNum))
+    do
     {
-        cout << "Invalid account number. It must be a 6-digit number.\n";
-        return;
-    }
+        cout << "Enter account number (6-digit number): ";
+        cin >> accNum;
 
-    cout << "Enter account holder name: ";
-    cin >> name;
-    cout << "Enter initial balance: ";
+        if (cin.fail())
+        {
+            cin.clear();                                      
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Invalid input. Please enter a valid integer.\n";
+            continue; 
+        }
 
-    while (!(cin >> initialBalance))
+        if (!isValidAccountNumber(accNum))
+        {
+            cout << "Invalid account number. It must be a 6-digit number.\n";
+        }
+        
+    } while (!isValidAccountNumber(accNum));
+
+    do
     {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "invalid balance.Please enter a valid number: ";
-    }
+        cout << "Enter account holder name: ";
+        cin >> name;
+        if (!isValidName(name))
+        {
+            cout << "Your input Characters can't be numbers or symbols.\n";
+        }
+
+    } while (!isValidName(name));
+
+    do
+    {
+        cout << "Enter initial balance: ";
+        cin >> initialBalance;
+
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input! Please enter a valid number." << endl;
+        }
+        else if (!isValidBalance(initialBalance))
+        {
+            cout << "Your balance must be a positive number. Please enter again." << endl;
+        }
+    } while (!isValidBalance(initialBalance));
 
     bank.createAccount(accNum, name, initialBalance);
     cout << "Account created successfully!\n";
