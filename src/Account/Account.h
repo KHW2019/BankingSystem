@@ -22,7 +22,7 @@ public:
 
     // Account operations
     void deposit(double amount);
-    bool withdraw(double amount);  // Return false if insufficient balance
+    bool withdraw(double amount);  
 };
 
 #endif
