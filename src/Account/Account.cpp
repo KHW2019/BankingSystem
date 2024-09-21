@@ -4,11 +4,11 @@
 using namespace std;
 
 // Constructor
-Account::Account(string accNum, string name, double initialBalance) 
+Account::Account(int accNum, string name, double initialBalance) 
     : accountNumber(accNum), accountHolderName(name), balance(initialBalance) {}
 
 // Get account number
-string Account::getAccountNumber() const {
+int Account::getAccountNumber() const {
     return accountNumber;
 }
 

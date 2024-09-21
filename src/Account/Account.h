@@ -7,16 +7,16 @@ using namespace std;
 
 class Account {
 private:
-    string accountNumber;
+    int accountNumber;
     string accountHolderName;
     double balance;
 
 public:
     // Constructor
-    Account(string accNum, string name, double initialBalance);
+    Account(int accNum, string name, double initialBalance);
 
     // Getter methods
-    string getAccountNumber() const;
+    int getAccountNumber() const;
     string getAccountHolderName() const;
     double getBalance() const;
 

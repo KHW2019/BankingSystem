@@ -5,7 +5,7 @@
 using namespace std;
 
 void handleDeposit(Bank& bank) {
-    string accNum;
+    int accNum;
     double amount;
 
     cout << "Enter account number: ";
@@ -28,7 +28,7 @@ void handleDeposit(Bank& bank) {
 }
 
 void handleWithdrawal(Bank& bank) {
-    string accNum;
+    int accNum;
     double amount;
 
     cout << "Enter account number: ";
